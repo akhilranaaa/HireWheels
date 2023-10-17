@@ -16,7 +16,7 @@ import java.time.LocalDate;
 //import java.util.Date;
 import java.time.ZonedDateTime;
 
-//import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,8 +31,8 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "booking_id", nullable = false, unique = true)
-    private Long bookingId;
+    @Column(name = "bookingID", nullable = false, unique = true)
+    private Long bookingID;
 
     @NotNull
     @Column(name = "pickup_date", nullable = false)
@@ -52,31 +52,34 @@ public class Booking {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id", nullable = false)
+    @JoinColumn(name = "locationID", nullable = false)
+    @JsonBackReference
     private Location location;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicle_id", nullable = false)
+    @JoinColumn(name = "vehicleID", nullable = false)
+    @JsonBackReference
     private Vehicle vehicle;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "userID", nullable = false)
+    @JsonBackReference
+    private Users user;
 
-    // Constructors, getters, setters, and any other methods as needed
+    // Other methods as needed
     @Override
     public String toString() {
         return "Booking{" +
-                "bookingId=" + bookingId +
+                "bookingId=" + bookingID +
                 ", pickupDate=" + pickupDate +
                 ", dropoffDate=" + dropoffDate +
                 ", bookingDate=" + bookingDate +
                 ", amount=" + amount +
-                ", location=" + location.getLocationName() + // Include the related Location's name
-                ", vehicle=" + vehicle.getVehicleModel() + // Include the related Vehicle's model
-                ", user=" + user.getEmail() + // Include the related User's email
+                ", location=" + location.getLocationName() + // Location
+                ", vehicle=" + vehicle.getVehicleModel() + // Vehicle's model
+                ", user=" + user.getEmail() + // User's email
                 '}';
     }
 

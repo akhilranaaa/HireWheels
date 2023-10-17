@@ -2,7 +2,7 @@ package org.ncu.hirewheels.entities;
 
 import java.util.List;
 
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,22 +29,23 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id", nullable = false, unique = true)
-    private Long roleId;
+    @Column(name = "roleID", nullable = false, unique = true)
+    private Long roleID;
 
     @NotBlank
     @Size(max = 50)
     @Column(name = "role_name", nullable = false, unique = true)
     private String roleName;
+    
+    @OneToMany(mappedBy = "roleID", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Users> users;
 
-    @OneToMany(mappedBy = "roleId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<User> users;
-
-    // Constructors, getters, setters, and any other methods as needed
+    // Other methods as needed
     @Override
     public String toString() {
         return "Role{" +
-                "roleId=" + roleId +
+                "roleId=" + roleID +
                 ", roleName='" + roleName + '\'' +
                 '}';
     }

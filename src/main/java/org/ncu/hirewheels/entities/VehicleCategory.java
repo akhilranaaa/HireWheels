@@ -2,7 +2,7 @@ package org.ncu.hirewheels.entities;
 
 import java.util.List;
 
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,8 +29,8 @@ public class VehicleCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vehicle_category_id", nullable = false, unique = true)
-    private Long vehicleCategoryId;
+    @Column(name = "vehicle_categoryID", nullable = false, unique = true)
+    private Long vehicleCategoryID;
 
     @NotBlank
     @Size(max = 50)
@@ -38,15 +38,16 @@ public class VehicleCategory {
     private String vehicleCategoryName;
 
     @OneToMany(mappedBy = "vehicleCategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<VehicleSubCategory> vehicleSubcategories;
+    @JsonManagedReference
+    private List<VehicleSubcategory> vehicleSubcategories;
+    
 
-
-    // Constructors, getters, setters, and any other methods as needed
-
+    // Other methods as needed
+    
     @Override
     public String toString() {
         return "VehicleCategory{" +
-                "vehicleCategoryId=" + vehicleCategoryId +
+                "vehicleCategoryId=" + vehicleCategoryID +
                 ", vehicleCategoryName='" + vehicleCategoryName + '\'' +
                 '}';
     }

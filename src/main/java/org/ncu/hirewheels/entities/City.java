@@ -2,7 +2,7 @@ package org.ncu.hirewheels.entities;
 
 import java.util.List;
 
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,25 +29,26 @@ public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "city_id", nullable = false, unique = true)
-    private Long cityId;
+    @Column(name = "cityID", nullable = false, unique = true)
+    private Long cityID;
 
     @NotBlank
     @Size(max = 50)
     @Column(name = "city_name", nullable = false)
     private String cityName;
-
+    
     @OneToMany(mappedBy = "city", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Location> locations;
 
-    // Constructors, getters, setters, and any other methods as needed
+    // Other methods as needed
     @Override
     public String toString() {
         return "City{" +
-                "cityId=" + cityId +
+                "cityId=" + cityID +
                 ", cityName='" + cityName + '\'' +
                 '}';
     }
 
-
+    
 }

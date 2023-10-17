@@ -2,7 +2,7 @@ package org.ncu.hirewheels.entities;
 
 import java.util.List;
 
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,8 +29,8 @@ public class FuelType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "fuel_type_id", nullable = false, unique = true)
-    private Long fuelTypeId;
+    @Column(name = "fuel_typeID", nullable = false, unique = true)
+    private Long fuelTypeID;
 
     @NotBlank
     @Size(max = 50)
@@ -38,13 +38,14 @@ public class FuelType {
     private String fuelType;
 
     @OneToMany(mappedBy = "fuelType", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Vehicle> vehicles;
-
-    // Constructors, getters, setters, and any other methods as needed
+    
+    // Other methods as needed
     @Override
     public String toString() {
         return "FuelType{" +
-                "fuelTypeId=" + fuelTypeId +
+                "fuelTypeId=" + fuelTypeID +
                 ", fuelType='" + fuelType + '\'' +
                 '}';
     }

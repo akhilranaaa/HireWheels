@@ -2,8 +2,8 @@ package org.ncu.hirewheels.entities;
 
 import java.util.List;
 
-//import com.fasterxml.jackson.annotation.JsonBackReference;
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -33,8 +33,8 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vehicle_id", nullable = false, unique = true)
-    private Long vehicleId;
+    @Column(name = "vehicleID", nullable = false, unique = true)
+    private Long vehicleID;
 
     @NotBlank
     @Size(max = 50)
@@ -48,8 +48,9 @@ public class Vehicle {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicle_subcategory_id", nullable = false)
-    private VehicleSubCategory vehicleSubcategory;
+    @JoinColumn(name = "vehicle_subcategoryID", nullable = false)
+    @JsonBackReference
+    private VehicleSubcategory vehicleSubcategory;
 
     @NotBlank
     @Size(max = 50)
@@ -58,12 +59,14 @@ public class Vehicle {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id", nullable = false)
+    @JoinColumn(name = "locationID", nullable = false)
+    @JsonBackReference
     private Location location;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "fuel_type_id", nullable = true)
+    @JoinColumn(name = "fuel_typeID", nullable = true)
+    @JsonBackReference
     private FuelType fuelType;
 
     @NotNull
@@ -74,21 +77,22 @@ public class Vehicle {
     @Size(max = 500)
     @Column(name = "vehicle_image_url", nullable = false)
     private String vehicleImageUrl;
-
+    
     @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Booking> bookings;
 
-    // Constructors, getters, setters, and any other methods as needed
+    // Other methods as needed
     @Override
     public String toString() {
         return "Vehicle{" +
-                "vehicleId=" + vehicleId +
+                "vehicleId=" + vehicleID +
                 ", vehicleModel='" + vehicleModel + '\'' +
                 ", vehicleNumber='" + vehicleNumber + '\'' +
-                ", vehicleSubcategory=" + vehicleSubcategory.getVehicleSubcategoryName() + // Include the related VehicleSubcategory's name
+                ", vehicleSubcategory=" + vehicleSubcategory.getVehicleSubcategoryName() + // VehicleSubcategory's name
                 ", color='" + color + '\'' +
-                ", location=" + location.getLocationName() + // Include the related Location's name
-                ", fuelType=" + (fuelType != null ? fuelType.getFuelType() : "N/A") + // Include the related FuelType's name if available
+                ", location=" + location.getLocationName() + // Location name
+                ", fuelType=" + (fuelType != null ? fuelType.getFuelType() : "N/A") + // FuelType if available
                 ", availabilityStatus=" + availabilityStatus +
                 ", vehicleImageUrl='" + vehicleImageUrl + '\'' +
                 '}';

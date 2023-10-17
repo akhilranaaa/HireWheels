@@ -2,8 +2,8 @@ package org.ncu.hirewheels.entities;
 
 import java.util.List;
 
-//import com.fasterxml.jackson.annotation.JsonBackReference;
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -34,8 +34,8 @@ public class Location {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "location_id", nullable = false, unique = true)
-    private Long locationId;
+    @Column(name = "locationID", nullable = false, unique = true)
+    private Long locationID;
 
     @NotNull
     @NotBlank
@@ -51,7 +51,8 @@ public class Location {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "city_id", nullable = false)
+    @JoinColumn(name = "cityID", nullable = false)
+    @JsonBackReference
     private City city;
 
     @NotBlank
@@ -59,18 +60,20 @@ public class Location {
     @Size(max = 6)
     @Column(name = "pincode", nullable = false)
     private String pincode;
-
+    
     @OneToMany(mappedBy = "location", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Booking> bookings;
-
+    
     @OneToMany(mappedBy = "location", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Vehicle> vehicles;
 
-    // Constructors, getters, setters, and any other methods as needed
+    // Other methods as needed
     @Override
     public String toString() {
         return "Location{" +
-                "locationId=" + locationId +
+                "locationId=" + locationID +
                 ", locationName='" + locationName + '\'' +
                 ", address='" + address + '\'' +
                 ", city=" + city.getCityName() + // Include the related City's name

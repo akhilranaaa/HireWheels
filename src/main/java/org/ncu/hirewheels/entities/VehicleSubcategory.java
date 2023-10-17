@@ -2,7 +2,7 @@ package org.ncu.hirewheels.entities;
 
 import java.util.List;
 
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -28,12 +28,12 @@ import lombok.AllArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleSubCategory {
+public class VehicleSubcategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vehicle_subcategory_id", nullable = false, unique = true)
-    private Long vehicleSubcategoryId;
+    @Column(name = "vehicle_subcategoryID", nullable = false, unique = true)
+    private Long vehicleSubcategoryID;
 
     @NotBlank
     @Size(max = 50)
@@ -46,18 +46,19 @@ public class VehicleSubCategory {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "vehicle_category_id", nullable = false)
+    @JoinColumn(name = "vehicle_categoryID", nullable = false)
     private VehicleCategory vehicleCategory;
-
+    
     @OneToMany(mappedBy = "vehicleSubcategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Vehicle> vehicles;
 
 
-    // Constructors, getters, setters, and any other methods as needed
+    // Other methods as needed
     @Override
     public String toString() {
         return "VehicleSubcategory{" +
-                "vehicleSubcategoryId=" + vehicleSubcategoryId +
+                "vehicleSubcategoryId=" + vehicleSubcategoryID +
                 ", vehicleSubcategoryName='" + vehicleSubcategoryName + '\'' +
                 ", pricePerDay=" + pricePerDay +
                 '}';
