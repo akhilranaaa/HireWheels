@@ -12,9 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdminController {
     private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
