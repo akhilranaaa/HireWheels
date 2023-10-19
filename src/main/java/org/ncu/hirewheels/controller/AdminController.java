@@ -26,13 +26,13 @@ public class AdminController {
     }
 
     @PostMapping(value = "/vehicles/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> AddVehicle(@RequestBody VehicleRequest vehicleRequest) {
+    public ResponseEntity<Vehicle> AddVehicle(@RequestBody VehicleRequest vehicleRequest) {
 
         logger.info("Received request body: {}",  vehicleRequest);
 
         Vehicle vehicle = adminService.registerVehicle(vehicleRequest);
 
-        return new ResponseEntity<>("Vehicle added successfully", vehicle != null ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST);
+        return vehicle != null ? new ResponseEntity<>(vehicle, HttpStatus.CREATED) : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     // Update the availability status of the specified vehicle by ID

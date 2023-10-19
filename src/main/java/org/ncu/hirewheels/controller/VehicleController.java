@@ -18,7 +18,7 @@ public class VehicleController {
 
     private final VehicleService vehicleService;
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<List<VehicleDto>> getAllVehicles() {
 
         List<VehicleDto> vehicleDtos = vehicleService.getAllVehicles();

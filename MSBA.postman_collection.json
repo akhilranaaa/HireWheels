@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "fbebbb96-6278-4534-a635-8027d9a4b4b8",
+		"name": "MSBA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21365118"
+	},
+	"item": [
+		{
+			"name": "HireWheels",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Base request - Admin Ctrlr",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/hiringwheels/api/v1/admin/base",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"hiringwheels",
+										"api",
+										"v1",
+										"admin",
+										"base"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a vehicle",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicleModel\": \"AMG\",\r\n    \"vehicleNumber\": \"2022\",\r\n    \"vehicleSubCategoryId\": 1,\r\n    \"fuelTypeId\": 1,\r\n    \"locationId\": 1,\r\n    \"color\": \"Midnight\",\r\n    \"vehicleImageUrl\": \"https://www.mercedes-amg.com/content/global/en/misc/error/404/jcr:content/root/responsivegrid/imagetext/sliders/imagetextslide/media/image.media6.responsive_image_text_16_9.1623942591864.jpeg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/hirewheels/api/v1/admin/vehicles/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"hirewheels",
+										"api",
+										"v1",
+										"admin",
+										"vehicles",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Vehicle Availability Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"availabilityStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/hirewheels/api/v1/admin/vehicles/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"hirewheels",
+										"api",
+										"v1",
+										"admin",
+										"vehicles",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all available vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/hirewheels/api/v1/vehicle/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"hirewheels",
+								"api",
+								"v1",
+								"vehicle",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"vehicleId\": 4,\r\n    \"pickupDate\": \"2020-07-17T12:00:00.000+00:00\",\r\n    \"dropoffDate\": \"2020-07-18T15:00:00.000+00:00\",\r\n    \"bookingDate\": \"2020-06-29\",\r\n    \"locationId\": 1,\r\n    \"amount\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/hirewheels/api/v1/booking/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"hirewheels",
+								"api",
+								"v1",
+								"booking",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
