@@ -64,20 +64,20 @@ Currently, the following endpoints are functional
 
     GET
       hirewheels/api/v1/admin/base
-      ![Screenshot](/https://github.com/SwaggyXO/HireWheels/assets/76209941/d6dcbea7-4dcb-4fb5-866c-088e6b962d32)
+      ![Screenshot](https://raw.githubusercontent.com/SwaggyXO/HireWheels/assets/76209941/d6dcbea7-4dcb-4fb5-866c-088e6b962d32)
 
       hirewheels/api/v1/vehicle/all
-      ![Screenshot](/https://github.com/SwaggyXO/HireWheels/assets/76209941/3e62a8c0-b2cb-43cb-aec2-21162de1df5d)
+      ![Screenshot](https://raw.githubusercontent.com/SwaggyXO/HireWheels/assets/76209941/3e62a8c0-b2cb-43cb-aec2-21162de1df5d)
 
     POST
       hirewheels/api/v1/admin/vehicles/create
-      ![Screenshot](/https://github.com/SwaggyXO/HireWheels/assets/76209941/203e830a-cecd-4bd2-bfa0-6b3130a806b6)
+      ![Screenshot](https://raw.githubusercontent.com/SwaggyXO/HireWheels/assets/76209941/203e830a-cecd-4bd2-bfa0-6b3130a806b6)
 
       hirewheels/api/v1/booking/
-      ![Screenshot](/https://github.com/SwaggyXO/HireWheels/assets/76209941/2168dc9b-b32e-4df2-8a3a-98521d5c1943)
+      ![Screenshot](https://raw.githubusercontent.com/SwaggyXO/HireWheels/assets/76209941/2168dc9b-b32e-4df2-8a3a-98521d5c1943)
 
     PATCH
       hirewheels/api/v1/admin/vehicles/4
-      ![Screenshot](/https://github.com/SwaggyXO/HireWheels/assets/76209941/60bead90-1b28-4006-bab9-25b37e8977de)
+      ![Screenshot](https://raw.githubusercontent.com/SwaggyXO/HireWheels/assets/76209941/60bead90-1b28-4006-bab9-25b37e8977de)
 
 Thanks for reading it all ❤️
