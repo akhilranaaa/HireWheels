@@ -62,27 +62,30 @@ Endpoints
 
 Currently, the following endpoints are functional
 
-    GET
-      hirewheels/api/v1/admin/base
+GET
+
+hirewheels/api/v1/admin/base
       
-      <img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/d6dcbea7-4dcb-4fb5-866c-088e6b962d32">
+<img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/d6dcbea7-4dcb-4fb5-866c-088e6b962d32">
 
-      hirewheels/api/v1/vehicle/all
+hirewheels/api/v1/vehicle/all
 
-      <img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/3e62a8c0-b2cb-43cb-aec2-21162de1df5d">
+<img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/3e62a8c0-b2cb-43cb-aec2-21162de1df5d">
 
-    POST
-      hirewheels/api/v1/admin/vehicles/create
+POST
 
-      <img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/203e830a-cecd-4bd2-bfa0-6b3130a806b6">
+hirewheels/api/v1/admin/vehicles/create
 
-      hirewheels/api/v1/booking/
+<img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/203e830a-cecd-4bd2-bfa0-6b3130a806b6">
 
-      <img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/2168dc9b-b32e-4df2-8a3a-98521d5c1943">
+hirewheels/api/v1/booking/
 
-    PATCH
-      hirewheels/api/v1/admin/vehicles/4
+<img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/2168dc9b-b32e-4df2-8a3a-98521d5c1943">
 
-      <img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/60bead90-1b28-4006-bab9-25b37e8977de">
+PATCH
 
-Thanks for reading it ❤️
+hirewheels/api/v1/admin/vehicles/4
+
+<img width="1351" alt="screenshot" src="https://github.com/SwaggyXO/HireWheels/assets/76209941/60bead90-1b28-4006-bab9-25b37e8977de">
+
+Thanks for reading ❤️
